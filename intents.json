@@ -1,122 +1,126 @@
 {
-   "intents":[
+   "intents": [
       {
-         "tag":"greeting",
-         "patterns":[
-            "Hi there",
-            "How are you",
-            "Is anyone there?",
-            "Hey",
+         "tag": "saludo",
+         "patterns": [
             "Hola",
-            "Hello",
-            "Good day"
+            "Cómo estás",
+            "¿Hay alguien ahí?",
+            "Ey",
+            "Hola",
+            "Hola",
+            "Buen día"
          ],
-         "responses":[
-            "Hello, thanks for asking",
-            "Good to see you again",
-            "Hi there, how can I help?"
+         "responses": [
+            "Hola, gracias por preguntar",
+            "Qué bueno verte de nuevo",
+            "Hola, ¿en qué puedo ayudar?",
+            "hola, greacias por contactarnos, en que puedo ayudar"
+
          ],
-         "context":[
+         "context": [
             ""
          ]
       },
       {
-         "tag":"goodbye",
-         "patterns":[
-            "Bye",
-            "See you later",
-            "Goodbye",
-            "Nice chatting to you, bye",
-            "Till next time"
+         "tag": "adiós",
+         "patterns": [
+            "Adiós",
+            "Hasta luego",
+            "Adiós",
+            "Un placer charlar contigo, adiós",
+            "Hasta la próxima"
          ],
-         "responses":[
-            "See you!",
-            "Have a nice day",
-            "Bye! Come back again soon."
+         "responses": [
+            "¡Nos vemos!",
+            "Que tenga un lindo día",
+            "¡Adiós! Vuelve pronto."
          ],
-         "context":[
+         "context": [
             ""
          ]
       },
       {
-         "tag":"thanks",
-         "patterns":[
-            "Thanks",
-            "Thank you",
-            "That's helpful",
-            "Awesome, thanks",
-            "Thanks for helping me"
+         "tag": "gracias",
+         "patterns": [
+            "Gracias",
+            "Gracias",
+            "Eso es útil",
+            "Genial gracias",
+            "Gracias por ayudarme"
          ],
-         "responses":[
-            "Happy to help!",
-            "Any time!",
-            "My pleasure"
+         "responses": [
+            "¡Encantado de ayudarle!",
+            "¡En cualquier momento!",
+            "Mi placer"
          ],
-         "context":[
+         "context": [
             ""
          ]
       },
       {
-         "tag":"noanswer",
-         "patterns":[
-            
+         "tag": "sin respuesta",
+         "patterns": [],
+         "responses": [
+            "Lo siento, no puedo entenderte",
+            "Por favor dame más información sobre los paquetes, tour , y alojamientos",
+            "No estoy seguro de comprender"
          ],
-         "responses":[
-            "Sorry, can't understand you",
-            "Please give me more info",
-            "Not sure I understand"
-         ],
-         "context":[
+         "context": [
             ""
          ]
       },
       {
-         "tag":"options",
-         "patterns":[
-            "How you could help me?",
-            "What you can do?",
-            "What help you provide?",
-            "How you can be helpful?",
-            "What support is offered"
+         "tag": " opciones",
+         "patterns": [
+            "¿Cómo podrías ayudarme?",
+            "¿podrias asesorarme con los paquetes?",
+            "¿podrias asesorarme con los tour?",
+            "¿podrias asesorarme con un alojamiento?",
+            "¿podrias ayudarme con una reserva?"
          ],
-         "responses":[
-            "I am a personal assistant of Balaji Srinivasan and I am a Python fan",
-            "I am a Python fanboy and a subscriber of Balaji Srinivasan's YouTube channel"
+         "responses": [
+            "Soy asistente Personal De agencia de Viajes TRAVELO, Por supuesto que puedo ayudarte, Permiteme tu nombre, apellido, correo y numero de contacto",
+            "Sere Tu guia personal en cada proyecto de viaje que desees realizar",
+            "Somos una agencia de Viajes con multiples servicios, y variedad de precio y promociones"
          ],
-         "context":[
+         "context": [
             ""
          ]
       },
       {
-         "tag":"python_is_best",
-         "patterns":[
-            "Which is the best programming language?",
-            "Can you tell me the best language ever?",
-            "What language can I start for programming",
-            "Is Python language an awesome language?",
-            "I am a beginner and I need to learn a new language"
+         "tag": "viajes",
+         "patterns": [
+            "¿que tipo de viajes con buenas tarifas ofrece?",
+            "¿Puedes decirme cuál es el mejor Paquete que ofrece que ofrecen?",
+            "¿Puedes decirme cuál es el mejor alojamiento que ofrece que ofrecen?",
+            "¿Puedes decirme cuál es el mejor tour que ofrece que ofrecen?",
+            "¿Pueden ayudarme con una reserva?"
+      
          ],
-         "responses":[
-            "Without a doubt, Python is the most BEAUTIFUL language ever! You can start learning it anytime",
-            "I am a fan of Python. It's my favorite ever. If you don't believe me, try it yourself"
+         "responses": [
+            "¡Sin duda, el mejor alojamiento que existe es Hesperia,un hotel Estrella,",
+            "¡Sin duda, el mejor tour que existe es el de Margarita,",
+            "¡Sin duda, el mejor paquete que existe es el de Dubai,",
+            "Soy fanático de Dubai, Es mi favorito. Si no me crees, pruébalo tú mismo"
          ],
-         "context":[
+         "context": [
             ""
          ]
       },
       {
-         "tag":"joke",
-         "patterns":[
-            "tell me a joke",
-            "can you tell me a joke",
-            "make some fun",
-            "make me laugh and do some funny joke",
-            "tell me a joke"
+         "tag": "broma",
+         "patterns": [
+            "Cuéntame un chiste",
+            "¿Puedes contarme un chiste?",
+            "diviértete",
+            "Hazme reír y hazme alguna broma graciosa",
+            "Cuéntame un chiste"
          ],
-         "responses":[
-            "How do functions break up? \n They stop calling each other."
+         "responses": [
+            "¿Perdon sin no contesto?,ando recojiendo latas para irme de viaje "
          ],
-         "context":[
+         "context": [
             ""
          ]
       }
