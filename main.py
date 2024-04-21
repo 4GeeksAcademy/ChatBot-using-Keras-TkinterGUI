@@ -1,83 +1,69 @@
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout
-from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize import word_tokenize
-import nltk
-import random
-import json
 import numpy as np
+import json
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Embedding, GlobalAveragePooling1D
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from sklearn.preprocessing import LabelEncoder
 
-# Descargar recursos de NLTK (ejecutar solo una vez)
-nltk.download('punkt')
-nltk.download('wordnet')
-
-# Cargar datos de intents.json
+# Cargar los intents desde el archivo JSON
 with open('intents.json') as file:
-    intents = json.load(file)
+    data = json.load(file)
+    intents = data['intents']
 
-# Preprocesamiento de datos
-lemmatizer = WordNetLemmatizer()
-words = []
-classes = []
-documents = []
-ignore_words = ['?', '!']
-for intent in intents['intents']:
+# Recopilar datos de entrenamiento
+training_sentences = []
+training_labels = []
+labels = []
+responses = []
+
+for intent in intents:
     for pattern in intent['patterns']:
-        # Tokenizar y lematizar palabras
-        word_list = word_tokenize(pattern)
-        words.extend(word_list)
-        documents.append((word_list, intent['tag']))
-        # Agregar a la lista de clases
-        if intent['tag'] not in classes:
-            classes.append(intent['tag'])
+        training_sentences.append(pattern)
+        training_labels.append(intent['tag'])
+    responses.append(intent['responses'])
 
-# Lematizar y eliminar duplicados
-words = [lemmatizer.lemmatize(word.lower()) for word in words if word not in ignore_words]
-words = sorted(list(set(words)))
+    if intent['tag'] not in labels:
+        labels.append(intent['tag'])
 
-# Crear datos de entrada y salida
-training = []
-output_empty = [0] * len(classes)
-for doc in documents:
-    bag = []
-    word_patterns = doc[0]
-    word_patterns = [lemmatizer.lemmatize(word.lower()) for word in word_patterns]
-    for word in words:
-        bag.append(1) if word in word_patterns else bag.append(0)
-    
-    output_row = list(output_empty)
-    output_row[classes.index(doc[1])] = 1
-    
-    training.append([bag, output_row])
+# Codificar las etiquetas
+label_encoder = LabelEncoder()
+label_encoder.fit(training_labels)
+training_labels = label_encoder.transform(training_labels)
 
-random.shuffle(training)
-training = np.array(training)
+vocab_size = 1000
+embedding_dim = 16
+max_length = 20
+trunc_type = 'post'
+padding_type = 'post'
+oov_tok = "<OOV>"
 
-train_x = list(training[:, 0])
-train_y = list(training[:, 1])
+# Tokenizar y secuenciar las oraciones de entrenamiento
+tokenizer = Tokenizer(num_words=vocab_size, oov_token=oov_tok)
+tokenizer.fit_on_texts(training_sentences)
+word_index = tokenizer.word_index
+sequences = tokenizer.texts_to_sequences(training_sentences)
+padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
 
-# Convertir a numpy arrays
-train_x = np.array(train_x)
-train_y = np.array(train_y)
-
-# Definición del modelo
+# Crear el modelo
 model = Sequential([
-    Dense(128, input_shape=(len(train_x[0]),), activation='relu'),
+    Embedding(vocab_size, embedding_dim, input_length=max_length),
+    GlobalAveragePooling1D(),
+    Dense(16, activation='relu'),
     Dropout(0.5),
-    Dense(64, activation='relu'),
-    Dropout(0.5),
-    Dense(len(train_y[0]), activation='softmax')
+    Dense(len(labels), activation='softmax')
 ])
 
-# Compilación del modelo
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+# Compilar el modelo
+model.compile(loss='sparse_categorical_crossentropy',
+              optimizer='adam',
+              metrics=['accuracy'])
 
-# Entrenamiento del modelo
-model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=1)
+# Entrenar el modelo
+num_epochs = 500
+history = model.fit(padded, np.array(training_labels), epochs=num_epochs, verbose=1)
 
 # Guardar el modelo
-model.save('chatbot_model.h5')
-print("Modelo guardado como 'chatbot_model.h5'")
+model.save('intent_model.h5')
+
+print("Modelo entrenado y guardado exitosamente!")

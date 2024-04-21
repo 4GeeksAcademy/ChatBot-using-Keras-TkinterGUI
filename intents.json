@@ -15,12 +15,9 @@
             "Hola, gracias por preguntar",
             "Qué bueno verte de nuevo",
             "Hola, ¿en qué puedo ayudar?",
-            "hola, greacias por contactarnos, en que puedo ayudar"
-
+            "hola, gracias por contactarnos, ¿en qué puedo ayudar?"
          ],
-         "context": [
-            ""
-         ]
+         "context": [ "" ]
       },
       {
          "tag": "adiós",
@@ -36,9 +33,7 @@
             "Que tenga un lindo día",
             "¡Adiós! Vuelve pronto."
          ],
-         "context": [
-            ""
-         ]
+         "context": [ "" ]
       },
       {
          "tag": "gracias",
@@ -54,75 +49,64 @@
             "¡En cualquier momento!",
             "Mi placer"
          ],
-         "context": [
-            ""
-         ]
+         "context": [ "" ]
       },
       {
          "tag": "sin respuesta",
          "patterns": [],
          "responses": [
             "Lo siento, no puedo entenderte",
-            "Por favor dame más información sobre los paquetes, tour , y alojamientos",
+            "Por favor, dame más información sobre los paquetes, tours y alojamientos",
             "No estoy seguro de comprender"
          ],
-         "context": [
-            ""
-         ]
+         "context": [ "" ]
       },
       {
-         "tag": " opciones",
+         "tag": "opciones",
          "patterns": [
             "¿Cómo podrías ayudarme?",
-            "¿podrias asesorarme con los paquetes?",
-            "¿podrias asesorarme con los tour?",
-            "¿podrias asesorarme con un alojamiento?",
-            "¿podrias ayudarme con una reserva?"
+            "¿Podrías asesorarme con los paquetes?",
+            "¿Podrías asesorarme con los tours?",
+            "¿Podrías asesorarme con un alojamiento?",
+            "¿Podrías ayudarme con una reserva?"
          ],
          "responses": [
-            "Soy asistente Personal De agencia de Viajes TRAVELO, Por supuesto que puedo ayudarte, Permiteme tu nombre, apellido, correo y numero de contacto",
-            "Sere Tu guia personal en cada proyecto de viaje que desees realizar",
-            "Somos una agencia de Viajes con multiples servicios, y variedad de precio y promociones"
+            "Soy un asistente personal de la agencia de viajes TRAVELO..",
+            "Seré tu guía personal en cada proyecto de viaje que desees realizar.",
+            "Somos una agencia de viajes con múltiples servicios y variedad de precios y promociones."
          ],
-         "context": [
-            ""
-         ]
+         "context": [ "" ]
       },
       {
          "tag": "viajes",
          "patterns": [
-            "¿que tipo de viajes con buenas tarifas ofrece?",
-            "¿Puedes decirme cuál es el mejor Paquete que ofrece que ofrecen?",
-            "¿Puedes decirme cuál es el mejor alojamiento que ofrece que ofrecen?",
-            "¿Puedes decirme cuál es el mejor tour que ofrece que ofrecen?",
+            "¿Qué tipo de viajes con buenas tarifas ofrecen?",
+            "¿Puedes decirme cuál es el mejor paquete que ofrecen?",
+            "¿Puedes decirme cuál es el mejor alojamiento que ofrecen?",
+            "¿Puedes decirme cuál es el mejor tour que ofrecen?",
             "¿Pueden ayudarme con una reserva?"
-      
          ],
          "responses": [
-            "¡Sin duda, el mejor alojamiento que existe es Hesperia,un hotel Estrella,",
-            "¡Sin duda, el mejor tour que existe es el de Margarita,",
-            "¡Sin duda, el mejor paquete que existe es el de Dubai,",
-            "Soy fanático de Dubai, Es mi favorito. Si no me crees, pruébalo tú mismo"
+            "¡Sin duda, el mejor alojamiento que existe es el Hesperia, un hotel estrella!",
+            "¡Sin duda, el mejor tour que existe es el de Margarita!",
+            "¡Sin duda, el mejor paquete que existe es el de Dubai!",
+            "Soy fanático de Dubai. Es mi destino favorito. Si no me crees, pruébalo tú mismo."
          ],
-         "context": [
-            ""
-         ]
+         "context": [ "" ]
       },
       {
          "tag": "broma",
          "patterns": [
             "Cuéntame un chiste",
             "¿Puedes contarme un chiste?",
-            "diviértete",
-            "Hazme reír y hazme alguna broma graciosa",
-            "Cuéntame un chiste"
+            "Diviértete",
+            "Hazme reír con una broma graciosa",
+            "Cuéntame algo divertido"
          ],
          "responses": [
-            "¿Perdon sin no contesto?,ando recojiendo latas para irme de viaje "
+            "¿Perdón por no responder? Estoy ocupado recolectando latas para mi próximo viaje."
          ],
-         "context": [
-            ""
-         ]
+         "context": [ "" ]
       }
    ]
 }
